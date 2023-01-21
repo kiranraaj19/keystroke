@@ -60,10 +60,10 @@
     "windows": [
       {
         "fullscreen": false,
-        "height": 600,
+        "height": 100,
         "resizable": true,
         "title": "keystrokev1",
-        "width": 800
+        "width": 150
       }
     ]
   }
