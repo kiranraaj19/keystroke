@@ -12,6 +12,7 @@ fn greet(name: &str) -> String {
 // Listen for key events using device_query library and when a key event occurs, send it on the mpsc channel
 use device_query::{DeviceEvents, DeviceState};
 use std::sync::{mpsc, Mutex};
+use tauri::Manager;
 struct MpscChannel {
     inner: Mutex<mpsc::Sender<String>>,
 }
@@ -25,8 +26,28 @@ fn listen_for_key_events(sender: tauri::State<'_, MpscChannel>) {
     });
 }
 
+fn send_to_frontend<R: tauri::Runtime>(manager: &impl Manager<R>, key: String) {
+    manager.emit_all("key_event", key).unwrap();
+}
+
 fn main() {
+    let (output_tx, output_rx) = mpsc::channel::<String>();
+
     tauri::Builder::default()
+        .manage(MpscChannel {
+            inner: Mutex::new(output_tx),
+        })
+        .setup(|app| {
+            let app_handle = app.handle();
+
+            tauri::async_runtime::spawn(async move {
+                while let key = output_rx.recv().unwrap() {
+                    send_to_frontend(&app_handle, key);
+                }
+            });
+
+            Ok(())
+        })
         .invoke_handler(tauri::generate_handler![greet])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
