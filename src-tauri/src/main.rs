@@ -3,12 +3,6 @@
     windows_subsystem = "windows"
 )]
 
-// Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-#[tauri::command]
-fn greet(name: &str) -> String {
-    format!("Hello, {}! You've been greeted from Rust!", name)
-}
-
 // Listen for key events using device_query library and when a key event occurs, send it on the mpsc channel
 use device_query::{DeviceEvents, DeviceState};
 use std::sync::{mpsc, Mutex};
@@ -20,11 +14,11 @@ struct MpscChannel {
 fn listen_for_key_events(sender: MpscChannel) {
     let device_state = DeviceState::new();
 
-    let _guard = device_state.on_key_up(|key| {
-        let output_tx = *sender.inner.lock().unwrap();
-        output_tx.send(key.to_string());
+    let _guard = device_state.on_key_up(move |key| {
+        let output_tx = &*sender.inner.lock().unwrap();
+        output_tx.send(key.to_string()).unwrap();
+        // println!("Listening on backend: {}\n", key.to_string());
     });
-
     loop {}
 }
 
@@ -41,6 +35,7 @@ fn main() {
 
             tauri::async_runtime::spawn(async move {
                 while let key = output_rx.recv().unwrap() {
+                    // println!("Lisening on Main thread: {}", key);
                     send_to_frontend(&app_handle, key);
                 }
             });
@@ -54,7 +49,6 @@ fn main() {
 
             Ok(())
         })
-        .invoke_handler(tauri::generate_handler![greet])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
