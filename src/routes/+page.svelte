@@ -2,7 +2,7 @@
   import { listen } from "@tauri-apps/api/event";
   import { onMount } from "svelte";
 
-  let key = "";
+  let key = " ";
 
   onMount(async () => {
     const unlisten = await listen(
@@ -16,3 +16,11 @@
 </script>
 
 <p>{key}</p>
+
+<style>
+  p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
