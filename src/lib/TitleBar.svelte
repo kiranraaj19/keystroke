@@ -6,18 +6,19 @@
 <div class="buttons">
     <button
         class="button"
-        data-tauri-drag-region
         on:click={async () => {
             await appWindow.startDragging();
-        }}>/</button
+        }}
     >
+        <ion-icon data-tauri-drag-region name="compass-outline" />
+    </button>
     <button
         class="button"
         on:click={() => {
             appWindow.minimize();
         }}
     >
-        -
+        <ion-icon name="remove-outline" />
     </button>
     <button
         class="button"
@@ -25,14 +26,24 @@
             appWindow.close();
         }}
     >
-        X
+        <ion-icon name="close-outline" />
     </button>
+
+    <script
+        type="module"
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+        nomodule
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
 </div>
 
 <style>
-    .buttons {
-        position: absolute;
-        top: 0;
-        right: 0;
+    .button {
+        background: none;
+        color: inherit;
+        border: none;
+        font-size: 24px;
     }
 </style>

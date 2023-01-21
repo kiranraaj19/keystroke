@@ -95,8 +95,10 @@
         "height": 120,
         "resizable": true,
         "title": "keystrokev1",
-        "width": 150,
-        "decorations": false
+        "width": 170,
+        "decorations": false,
+        "titleBarStyle": "Transparent",
+        "alwaysOnTop": true
       }
     ]
   }
