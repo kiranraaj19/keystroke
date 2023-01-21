@@ -17,13 +17,15 @@ struct MpscChannel {
     inner: Mutex<mpsc::Sender<String>>,
 }
 
-fn listen_for_key_events(sender: tauri::State<'_, MpscChannel>) {
+fn listen_for_key_events(sender: MpscChannel) {
     let device_state = DeviceState::new();
 
     let _guard = device_state.on_key_up(|key| {
         let output_tx = *sender.inner.lock().unwrap();
         output_tx.send(key.to_string());
     });
+
+    loop {}
 }
 
 fn send_to_frontend<R: tauri::Runtime>(manager: &impl Manager<R>, key: String) {
@@ -34,9 +36,6 @@ fn main() {
     let (output_tx, output_rx) = mpsc::channel::<String>();
 
     tauri::Builder::default()
-        .manage(MpscChannel {
-            inner: Mutex::new(output_tx),
-        })
         .setup(|app| {
             let app_handle = app.handle();
 
@@ -44,6 +43,13 @@ fn main() {
                 while let key = output_rx.recv().unwrap() {
                     send_to_frontend(&app_handle, key);
                 }
+            });
+
+            // Listen for key events on a seperate runtime
+            tauri::async_runtime::spawn(async move {
+                listen_for_key_events(MpscChannel {
+                    inner: Mutex::new(output_tx),
+                });
             });
 
             Ok(())
