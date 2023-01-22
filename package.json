@@ -15,11 +15,12 @@
     "@tauri-apps/api": "^1.2.0"
   },
   "devDependencies": {
-    "@sveltejs/kit": "next",
     "@sveltejs/adapter-static": "next",
+    "@sveltejs/kit": "next",
+    "@tauri-apps/cli": "^1.2.3",
+    "@tauri-apps/tauricon": "^1.0.3",
     "svelte": "^3.54.0",
     "svelte-check": "^3.0.0",
-    "@tauri-apps/cli": "^1.2.2",
     "typescript": "^4.8.4",
     "vite": "^4.0.0"
   }
