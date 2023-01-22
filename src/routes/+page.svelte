@@ -25,10 +25,10 @@
 
 <p>
   {#each prev_keys as key}
-    <span in:fly={{ y: -5 }} out:fade>{key}</span>
+    <span in:fly={{ x: 5 }} out:fade>{key}</span>
   {/each}
   {#key curr_key}
-    <span in:fly={{ y: -5 }}>{curr_key}</span>
+    <span in:fly={{ x: 5 }}>{curr_key}</span>
   {/key}
 </p>
 
