@@ -10,4 +10,8 @@ A minimal keyboard overlay in rust that tells you which key you have pressed. Yo
 v0.0.0 Pre-release
 
 ## Future Implementations
-Better keycodes. Example: 󰘶 Instead of LShift
+Better keycodes.
+
+## Should know
+![image](https://user-images.githubusercontent.com/39441413/213914109-6444b916-7bb3-4bca-a399-1b94396dc564.png) <br>
+is for Dragging window around as it has no titlebar to grab onto
