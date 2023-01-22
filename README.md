@@ -7,7 +7,7 @@ A minimal keyboard overlay in rust that tells you which key you have pressed. Yo
 </p>
 
 ## Check releases for downloads
-v0.0.0 Pre-release
+v0.0.1
 
 ## Should know
 - ![image](https://user-images.githubusercontent.com/39441413/213933439-06485810-cdd0-405b-9b8a-5b6f4debb11e.png)<br>
