@@ -15,13 +15,13 @@
     "@tauri-apps/api": "^1.2.0"
   },
   "devDependencies": {
-    "@sveltejs/adapter-static": "next",
-    "@sveltejs/kit": "next",
+    "@sveltejs/adapter-static": "1.0.0-next.50",
+    "@sveltejs/kit": "1.0.0-next.589",
     "@tauri-apps/cli": "^1.2.3",
     "@tauri-apps/tauricon": "^1.0.3",
-    "svelte": "^3.54.0",
-    "svelte-check": "^3.0.0",
-    "typescript": "^4.8.4",
-    "vite": "^4.0.0"
+    "svelte": "^3.55.1",
+    "svelte-check": "^3.0.2",
+    "typescript": "^4.9.4",
+    "vite": "^4.0.4"
   }
 }

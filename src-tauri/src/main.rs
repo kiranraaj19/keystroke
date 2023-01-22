@@ -34,7 +34,8 @@ fn main() {
             let app_handle = app.handle();
 
             tauri::async_runtime::spawn(async move {
-                while let key = output_rx.recv().unwrap() {
+                loop {
+                    let key = output_rx.recv().unwrap();
                     // println!("Lisening on Main thread: {}", key);
                     send_to_frontend(&app_handle, key);
                 }
