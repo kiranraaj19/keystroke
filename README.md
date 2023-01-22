@@ -1,8 +1,13 @@
-# Svelte-Kit + Vite
+# Keystroke
 
-This template should help get you started developing with Tauri and Svelte-Kit in Vite.
+A minimal keyboard overlay in rust that tells you which key you have pressed. You can resize it, move it around and just let it run. Aesthetically pleasing minimal UI.
 
-## Recommended IDE Setup
+<p align="center">
+<img src="https://user-images.githubusercontent.com/39441413/213913541-e8450c4e-4b5b-4008-8d74-9b007522fad6.png">
+</p>
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer).
+## Check releases for downloads
+v0.0.0 Pre-release
 
+## Future Implementations
+Better keycodes. Example: 󰘶 Instead of LShift
