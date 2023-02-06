@@ -18,7 +18,7 @@ serde_json = "1.0"
 serde = { version = "1.0", features = ["derive"] }
 tauri = { version = "1.2", features = ["shell-open", "window-close", "window-minimize", "window-set-always-on-top", "window-set-position", "window-start-dragging"] }
 tokio = { version = "1.24.2", features = ["full"] }
-device_query = "1.1.2"
+device_query = { git = "https://github.com/kiranraaj19/device_query.git" }
 
 [features]
 # by default Tauri runs in production mode
