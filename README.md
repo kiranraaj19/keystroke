@@ -7,12 +7,9 @@ A minimal keyboard overlay in rust that tells you which key you have pressed. Yo
 </p>
 
 ## Check releases for downloads
-v0.0.1
+v0.1.0
 
 ## Should know
 - ![image](https://user-images.githubusercontent.com/39441413/213933439-06485810-cdd0-405b-9b8a-5b6f4debb11e.png)<br>
 is for Dragging window around as it has no titlebar to grab onto
 - `chmod a+x <appimage name>` run this command so that the appimage can work
-
-## Future Implementations
-Better keycodes.
