@@ -1,6 +1,6 @@
 # Keystroke
 
-A minimal keyboard overlay in rust that tells you which key you have pressed. You can resize it, move it around and just let it run. Aesthetically pleasing minimal UI.
+A minimal keyboard overlay in rust that tells you which key you have pressed. Use it in your coding video streams or use it to showcase your typing speed!  Open it and keep it open in the background while it shows you whatever key you pressed.
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/39441413/213933412-841d61f1-523e-439f-a814-0a820cd22e92.png">
